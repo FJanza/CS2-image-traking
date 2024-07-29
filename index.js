@@ -321,7 +321,7 @@ const saveImages = async () => {
     const filePath = `download/${filaeName}`;
     skins[
       index
-    ].img = `https://github.com/FJanza/CS2-image-traking/blob/main/download/${filaeName}`;
+    ].img = `https://raw.githubusercontent.com/FJanza/CS2-image-traking/main/download/${filaeName}`;
 
     if (downloadNewImgs) {
       const a = await descargarImagen(skins[index].img, filePath);
