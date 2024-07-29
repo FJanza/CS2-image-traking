@@ -3,6 +3,7 @@ import {readFile} from "fs/promises";
 import {createClient} from "@supabase/supabase-js";
 import {descargarImagen} from "./image-downloader.js";
 
+const downloadNewImgs = false;
 const ObtainSkins = async () => {
   const STATES = ["heavy", "medium", "light"];
 
@@ -317,10 +318,14 @@ const saveImages = async () => {
     }.png`.replace(" ", "");
 
     // if (filaeName.includes("Music_Kit_Sean_Murray_A*D*8")) console.log(index);
-
     const filePath = `download/${filaeName}`;
+    skins[
+      index
+    ].img = `https://github.com/FJanza/CS2-image-traking/blob/main/download/${filaeName}`;
 
-    const a = await descargarImagen(skins[index].img, filePath);
+    if (downloadNewImgs) {
+      const a = await descargarImagen(skins[index].img, filePath);
+    }
 
     // if (d !== 0) {
     //   const fileContent = await readFile(filePath);
@@ -329,6 +334,15 @@ const saveImages = async () => {
     //   fs.unlinkSync(filePath);
     // }
   }
+
+  const allv2Json = JSON.stringify(skins);
+  // Escribir el archivo JSON Skins
+  fs.writeFile("allv2.json", allv2Json, "utf8", (err) => {
+    if (err) {
+      console.error("Error al escribir el archivo:", err);
+    }
+    console.log("Archivo JSON escrito correctamente");
+  });
 };
 
 ObtainSkins();
