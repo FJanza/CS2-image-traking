@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@extractus/article-extractor": "^8.0.7",
+    "@supabase/supabase-js": "^2.42.7",
+    "axios": "^1.6.8",
+    "fs": "0.0.1-security",
+    "playwright": "^1.43.1",
+    "request": "^2.88.2"
+  },
+  "type": "module"
+}
