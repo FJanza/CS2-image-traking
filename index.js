@@ -1,5 +1,4 @@
 import fs from "fs";
-import {Skins} from "./skins.js";
 import {readFile} from "fs/promises";
 import {createClient} from "@supabase/supabase-js";
 import {descargarImagen} from "./image-downloader.js";
@@ -276,7 +275,6 @@ const ObtainSkins = async () => {
   });
 
   // conseguimos un json con todos los skins pero con las imagenes guardadas por otros
-
   saveImages(); //guardamos las imagenes
 };
 
@@ -322,7 +320,7 @@ const saveImages = async () => {
 
     const filePath = `download/${filaeName}`;
 
-    await descargarImagen(skins[index].img, filePath);
+    const a = await descargarImagen(skins[index].img, filePath);
 
     // if (d !== 0) {
     //   const fileContent = await readFile(filePath);
