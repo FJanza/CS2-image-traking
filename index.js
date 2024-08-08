@@ -71,8 +71,8 @@ const ObtainSkins = async () => {
             color: skin.rarity.color,
           },
           img: skin.image.replace(
-            skin.image.split("_")[skin.image.split("_").length - 2],
-            state
+            `_${skin.image.split("_")[skin.image.split("_").length - 2]}_`,
+            `_${state}_`
           ),
           state: state,
         };
